@@ -16,4 +16,7 @@ class EventFileManager:
                 event_list.append(event)
         return event_list
 
-
+    def write_events_to_file(self, eventlist):
+        with open(self.FILE_PATH, "w") as file:
+            data = json.dumps(eventlist)
+            file.write(data)
