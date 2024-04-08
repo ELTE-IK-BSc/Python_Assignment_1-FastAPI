@@ -1,3 +1,4 @@
+from .file_storage import EventFileManager
 from fastapi import APIRouter, HTTPException
 from typing import List
 from .models import Event
@@ -7,7 +8,9 @@ router = APIRouter()
 
 @router.get("/events", response_model=List[Event])
 async def get_all_events():
-    pass
+    EFM = EventFileManager()
+    events = EFM.read_events_from_file()
+    return events
 
 
 @router.get("/events/filter", response_model=List[Event])
