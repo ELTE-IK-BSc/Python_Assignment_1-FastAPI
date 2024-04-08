@@ -21,11 +21,11 @@
     },
     {
         "id": 2,
-        "name": "Test event 1",
-        "date": "2024-03-06",
+        "name": "Test event 2",
+        "date": "2024-05-06",
         "organizer": {
-            "name": "fdev",
-            "email": "fdev@example.com"
+            "name": "pdev",
+            "email": "pdev@example.com"
         },
         "status": "active",
         "type": "event",
@@ -37,6 +37,6 @@
             }
         ],
         "location": "Budapest, Hungary",
-        "max_attendees": 100
+        "max_attendees": 50
     }
 ]
