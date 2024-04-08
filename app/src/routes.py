@@ -38,7 +38,13 @@ async def get_events_by_filter(
 
 @router.get("/events/{event_id}", response_model=Event)
 async def get_event_by_id(event_id: int):
-    pass
+    EFM = EventFileManager()
+    allEvents = EFM.read_events_from_file()
+    event: Event = {}
+    for e in allEvents:
+        if e.id == event_id:
+            event = e
+    return event
 
 
 @router.post("/events", response_model=Event)
