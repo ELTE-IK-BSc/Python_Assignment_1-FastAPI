@@ -1,4 +1,5 @@
 from .file_storage import EventFileManager
+from .event_analyzer import EventAnalyzer
 from fastapi import APIRouter, HTTPException
 from typing import List
 from .models import Event
@@ -89,4 +90,10 @@ async def delete_event(event_id: int):
 
 @router.get("/events/joiners/multiple-meetings")
 async def get_joiners_multiple_meetings():
-    pass
+    EFM = EventFileManager()
+    allEvents = EFM.read_events_from_file()
+    multiJoiners = EventAnalyzer.get_joiners_multiple_meetings_method(allEvents)
+    if len(multiJoiners) > 0:
+        return multiJoiners
+    else:
+        return "No joiners attending at least 2 meetings"
