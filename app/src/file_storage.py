@@ -16,7 +16,8 @@ class EventFileManager:
                 event_list.append(event)
         return event_list
 
-    def write_events_to_file(self, eventlist):
+    def write_events_to_file(self, eventlist: list[Event]):
         with open(self.FILE_PATH, "w") as file:
-            data = json.dumps(eventlist)
+            serializableEvents = list(map(lambda event: event.model_dump(), eventlist))
+            data = json.dumps(serializableEvents)
             file.write(data)
