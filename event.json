@@ -11,8 +11,13 @@
         "type": "event",
         "joiners": [
             {
-                "name": "Test User",
-                "email": "test@test.com",
+                "name": "Test User 1",
+                "email": "test1@test.com",
+                "country": "Hungary"
+            },
+            {
+                "name": "Test User 2",
+                "email": "test2@test.com",
                 "country": "Hungary"
             }
         ],
@@ -31,8 +36,18 @@
         "type": "event",
         "joiners": [
             {
-                "name": "Test User",
-                "email": "test@test.com",
+                "name": "Test User 1",
+                "email": "test1@test.com",
+                "country": "Hungary"
+            },
+            {
+                "name": "Test User 2",
+                "email": "test2@test.com",
+                "country": "Hungary"
+            },
+            {
+                "name": "Test User 3",
+                "email": "test3@test.com",
                 "country": "Hungary"
             }
         ],
