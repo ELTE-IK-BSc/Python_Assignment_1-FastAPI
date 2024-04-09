@@ -21,3 +21,9 @@ class EventFileManager:
             serializableEvents = list(map(lambda event: event.model_dump(), eventlist))
             data = json.dumps(serializableEvents)
             file.write(data)
+
+    def event_ids(self, eventlist: list[Event]) -> list[int]:
+        return list(map(lambda ev: ev.id, eventlist))
+
+    def isValidId(self, id: int, eventlist: list[Event]) -> bool:
+        return id in self.event_ids(eventlist)
