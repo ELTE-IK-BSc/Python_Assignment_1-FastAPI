@@ -40,11 +40,12 @@ async def get_events_by_filter(
 async def get_event_by_id(event_id: int):
     EFM = EventFileManager()
     allEvents = EFM.read_events_from_file()
-    event: Event = {}
-    for e in allEvents:
-        if e.id == event_id:
-            event = e
-    return event
+    if EFM.isValidId(event_id, allEvents):
+        for e in allEvents:
+            if e.id == event_id:
+                return e
+    else:
+        raise HTTPException(status_code=422, detail="Event not found")
 
 
 @router.post("/events", response_model=Event)
